@@ -22,17 +22,9 @@ struct BanCo {
 }banco;
 
 void khoitao(){
-	memset(banco.a, 0, sizeof(banco.a));
 	
-	memset(banco.X_hang, 0, sizeof(banco.X_hang));
-	memset(banco.X_cot, 0, sizeof(banco.X_cot));
-	memset(banco.X_thuan, 0, sizeof(banco.X_thuan));
-	memset(banco.X_nguoc, 0, sizeof(banco.X_nguoc));
+	memset(banco.a, -1, sizeof(banco.a));
 	
-	memset(banco.O_hang, 0, sizeof(banco.O_hang));
-	memset(banco.O_cot, 0, sizeof(banco.O_cot));
-	memset(banco.O_thuan, 0, sizeof(banco.O_thuan));
-	memset(banco.O_nguoc, 0, sizeof(banco.O_nguoc));
 }
 
 void in(int mat[][MAX], int n){
@@ -70,6 +62,7 @@ void setCot(int mat[][MAX], int res[][MAX], int n, char C, int &Max){
 			else 
 				cnt = 0;
 			res[i][j] = cnt;
+			Max = max(Max, cnt);
 		}
 	}
 }
@@ -153,6 +146,8 @@ int main(){
 			else if(ch == 'X') banco.a[i][j] = 1;
 			else if(ch == 'O') banco.a[i][j] = 2;
 		}
+			
+	file.close();
 			
 	cout << "Ban co:\n";
 	in(banco.a, banco.n);
