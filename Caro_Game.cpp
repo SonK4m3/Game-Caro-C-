@@ -358,12 +358,15 @@ void Continue(){
 	cout << "Nhap 1 de tiep tuc choi lai\n"
 		 << "Nhap 0 de thoat.\n";
 		 
-	int a; cin >> a;
-	if(a == 1) Init();
-	else{
+	string a; cin >> a;
+	if(a == "1") Init();
+	else if(a == "0"){
 		cout << "---------------\n"
 			 << "Exit game.";
 		game_STOP = true;
+	}
+	else {
+		Continue();
 	}
 }
 
